@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import styles from "./BaseIcon.module.scss";
+import styles from "./Icon.module.scss";
 import { EmptyBattery, FullBattery } from "./Icons";
 
 export interface Icon {

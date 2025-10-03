@@ -46,7 +46,7 @@ export interface ColorPaletteProps {
   compact?: boolean;
 }
 
-export const ColorPalette = ({ categories, compact = false }: ColorPaletteProps) => {
+export const ColorPalette = ({ categories, compact = true }: ColorPaletteProps) => {
   const colorGroups = [
     {
       title: 'Primary Colors',
