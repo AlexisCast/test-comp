@@ -1,12 +1,6 @@
 .colorPalette {
   padding: 1rem;
   font-family: system-ui, sans-serif;
-
-  &.compact {
-    .colorName {
-      display: none;
-    }
-  }
 }
 
 .colorPaletteHeader {
@@ -35,7 +29,6 @@
   border: 1px solid #e5e5e5;
   border-radius: 8px;
   padding: 1rem;
-  background: white;
 }
 
 .colorGroupTitle {
@@ -59,7 +52,6 @@
   padding: 0.5rem;
   border: 1px solid #e5e5e5;
   border-radius: 4px;
-  background: #fafafa;
   
   &:hover {
     border-color: #0ea5e9;

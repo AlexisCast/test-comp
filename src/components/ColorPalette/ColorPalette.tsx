@@ -42,11 +42,9 @@ const ColorGroup = ({ title, colors: colorList }: ColorGroupProps) => (
 export interface ColorPaletteProps {
   /** Show only specific color categories */
   categories?: string[];
-  /** Compact view with smaller swatches */
-  compact?: boolean;
 }
 
-export const ColorPalette = ({ categories, compact = true }: ColorPaletteProps) => {
+export const ColorPalette = ({ categories }: ColorPaletteProps) => {
   const colorGroups = [
     {
       title: 'Primary Colors',
@@ -222,7 +220,7 @@ export const ColorPalette = ({ categories, compact = true }: ColorPaletteProps) 
     : colorGroups;
 
   return (
-    <div className={`${styles.colorPalette} ${compact ? styles.compact : ''}`}>
+    <div className={styles.colorPalette}>
       <div className={styles.colorPaletteHeader}>
         <h2>Color Palette</h2>
         <p>Complete color system with semantic naming and consistent scales.</p>

@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/preact';
 import { ColorPalette } from './ColorPalette';
+import type { ColorPaletteProps } from './ColorPalette';
 
-const meta: Meta<typeof ColorPalette> = {
+const meta: Meta<ColorPaletteProps> = {
   title: 'Design System/ColorPalette',
   component: ColorPalette,
   parameters: {
@@ -33,22 +34,18 @@ const meta: Meta<typeof ColorPalette> = {
       },
       description: 'Filter to show only specific color categories',
     },
-    compact: {
-      control: 'boolean',
-      description: 'Display colors in a compact view with smaller swatches',
-    },
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof ColorPalette>;
+type Story = StoryObj<ColorPaletteProps>;
 
 export const AllColors: Story = {
   args: {},
   parameters: {
     docs: {
       description: {
-        story: 'Complete color palette showing all available colors organized by category in compact view.',
+        story: 'Complete color palette showing all available colors organized by category.',
       },
     },
   },
@@ -61,7 +58,7 @@ export const PrimaryColors: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Primary color scale - the main brand colors used throughout the interface in compact view.',
+        story: 'Primary color scale - the main brand colors used throughout the interface.',
       },
     },
   },
@@ -74,7 +71,7 @@ export const SemanticColors: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Semantic colors used for feedback, status indicators, and messaging in compact view.',
+        story: 'Semantic colors used for feedback, status indicators, and messaging.',
       },
     },
   },
@@ -87,7 +84,7 @@ export const NeutralColors: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Neutral and secondary colors for backgrounds, borders, and subtle elements in compact view.',
+        story: 'Neutral and secondary colors for backgrounds, borders, and subtle elements.',
       },
     },
   },
@@ -100,31 +97,7 @@ export const FunctionalColors: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Functional colors with semantic names for specific UI purposes like backgrounds, text, and borders in compact view.',
-      },
-    },
-  },
-};
-
-export const CompactView: Story = {
-  args: {},
-  parameters: {
-    docs: {
-      description: {
-        story: 'Compact view showing all colors with smaller swatches and minimal labels (default behavior).',
-      },
-    },
-  },
-};
-
-export const FullView: Story = {
-  args: {
-    compact: false,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Full view showing all colors with larger swatches and complete labels for detailed reference.',
+        story: 'Functional colors with semantic names for specific UI purposes like backgrounds, text, and borders.',
       },
     },
   },
@@ -137,7 +110,7 @@ export const BrandColors: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Core brand colors including primary, secondary, and their semantic aliases in compact view.',
+        story: 'Core brand colors including primary, secondary, and their semantic aliases.',
       },
     },
   },
@@ -150,7 +123,7 @@ export const SystemColors: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'System-level colors for interface foundations including base colors, neutrals, and functional colors in compact view.',
+        story: 'System-level colors for interface foundations including base colors, neutrals, and functional colors.',
       },
     },
   },
