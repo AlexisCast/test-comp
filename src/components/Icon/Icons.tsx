@@ -41,3 +41,24 @@ export const FullBattery = ({
 		/>
 	</svg>
 );
+
+export const Exclamation = ({
+	width = 16,
+	height = 16,
+	className,
+}: IconProps) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width={width}
+		height={height}
+		viewBox="0 0 24 24"
+		className={className}
+	>
+		<path
+			fill="currentColor"
+			d="M11 14V5h2v9zm0 5v-2h2v2z"
+		/>
+	</svg>
+);
+
+

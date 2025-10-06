@@ -1,17 +1,18 @@
 import classNames from "classnames";
 import styles from "./Icon.module.scss";
-import { EmptyBattery, FullBattery } from "./Icons";
+import { EmptyBattery, FullBattery, Exclamation } from "./Icons";
 
 export interface Icon {
 	className?: string;
 	variant?: "default" | "primary" | "secondary";
 	size?: "sm" | "md" | "lg";
-	iconName: "EmptyBattery" | "FullBattery";
+	iconName: "EmptyBattery" | "FullBattery" | "Exclamation";
 }
 
 const iconMap = {
   EmptyBattery: EmptyBattery,
   FullBattery: FullBattery,
+  Exclamation: Exclamation,
 };
 
 const sizeMap = {

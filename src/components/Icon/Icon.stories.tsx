@@ -17,7 +17,7 @@ const meta: Meta<Icon> = {
     },
     iconName: {
       control: 'select',
-      options: ['EmptyBattery', 'FullBattery'],
+      options: ['EmptyBattery', 'FullBattery', 'Exclamation'],
     },
     className: {
       control: 'text',
@@ -121,6 +121,22 @@ export const FullBatteryIcon: Story = {
   },
 };
 
+export const ExclamationIcon: Story = {
+  args: {
+    iconName: 'Exclamation',
+    variant: 'default',
+    size: 'md',
+  },
+  render: (args) => <BaseIcon {...args} />,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Shows the exclamation icon.',
+      },
+    },
+  },
+};
+
 export const AllSizes: Story = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -165,6 +181,10 @@ export const AllIcons: Story = {
       <div style={{ textAlign: 'center' }}>
         <BaseIcon iconName="FullBattery" variant="default" size="lg" />
         <div style={{ marginTop: '8px', fontSize: '12px' }}>Full Battery</div>
+      </div>
+      <div style={{ textAlign: 'center' }}>
+        <BaseIcon iconName="Exclamation" variant="default" size="lg" />
+        <div style={{ marginTop: '8px', fontSize: '12px' }}>Exclamation</div>
       </div>
     </div>
   ),

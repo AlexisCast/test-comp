@@ -1,0 +1,145 @@
+@use "../../styles/colors.module.scss";
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	width: 100%;
+	min-width: 16px;
+}
+
+.label {
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--neutral-700);
+	margin-bottom: 4px;
+}
+
+.required {
+	color: var(--error-500);
+	margin-left: 2px;
+}
+
+.inputWrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 36px;
+	padding: 0 16px;
+	border: 1px solid var(--neutral-300);
+	border-radius: 4px;
+	background-color: var(--neutral-50);
+	transition: all 0.2s ease-in-out;
+}
+
+.inputWrapper:focus-within {
+	border-color: var(--primary-500);
+	background-color: var(--primary-50);
+	box-shadow: 0 0 0 3px var(--primary-100);
+}
+
+.inputWrapperError {
+	border-color: #fbbf24;
+	background-color: #fefce8;
+}
+
+.inputWrapperError:focus-within {
+	border-color: #fbbf24;
+	background-color: #fefce8;
+	box-shadow: 0 0 0 3px #fef3c7;
+}
+
+.inputWrapperInvalid {
+	border-color: var(--error-500);
+	background-color: var(--error-50);
+}
+
+.inputWrapperInvalid:focus-within {
+	border-color: var(--error-500);
+	background-color: var(--error-50);
+	box-shadow: 0 0 0 3px var(--error-100);
+}
+
+.inputWrapperDisabled {
+	background-color: var(--neutral-100);
+	border-color: var(--neutral-200);
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+
+.inputWrapperOutline {
+	background-color: transparent;
+	border-width: 2px;
+}
+
+.inputWrapperFilled {
+	background-color: var(--neutral-100);
+	border: none;
+}
+
+.inputWrapperWithIcon {
+	padding-left: 0;
+}
+
+.iconWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	background-color: var(--primary-500);
+	color: white;
+	border-radius: 4px;
+	transition: all 0.2s ease-in-out;
+}
+
+.inputWrapperError .iconWrapper {
+	background-color: #fbbf24;
+	color: white;
+}
+
+.inputWrapperInvalid .iconWrapper {
+	background-color: #ef4444;
+	color: white;
+}
+
+.input {
+	flex: 1;
+	border: none;
+	outline: none;
+	background: transparent;
+	font-size: 14px;
+	color: var(--neutral-900);
+	padding: 0;
+}
+
+.input::placeholder {
+	color: var(--neutral-400);
+}
+
+.input:disabled {
+	cursor: not-allowed;
+	color: var(--neutral-500);
+}
+
+.inputWithIcon {
+	padding-left: 0;
+}
+
+/* Adjust padding when no icon */
+.inputWrapper:not(.inputWrapperWithIcon) .input {
+	padding-left: 0;
+}
+
+.helper {
+	font-size: 13px;
+	color: var(--neutral-600);
+	margin-top: 4px;
+}
+
+.helperError {
+	color: #f59e0b;
+}
+
+.helperInvalid {
+	color: var(--error-600);
+}
