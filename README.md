@@ -10,11 +10,28 @@ npm install ac-components
 
 ## Usage
 
+**🎉 CSS is now automatically included!** You no longer need to manually import CSS files.
+
+### Default Usage (Recommended - CSS Auto-included)
+
+```jsx
+import { Button, Input, ColorPalette } from 'ac-components';
+// That's it! CSS is automatically injected when components are imported
+```
+
+### Alternative Usage (Manual CSS Import)
+
+If you prefer to manage CSS separately, you can use:
+
+```jsx
+import { Button } from 'ac-components/with-css';
+import 'ac-components/css';
+```
+
 ### Button Component
 
 ```jsx
 import { Button } from 'ac-components';
-import 'ac-components/dist/ac-components.css';
 
 function App() {
   return (
