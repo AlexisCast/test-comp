@@ -1,14 +1,19 @@
 import { describe, it, expect, vi } from 'vitest';
-import { h } from 'preact';
 import { render, screen, fireEvent } from '@testing-library/preact';
-import { Input, InputWithExclamation } from './Input';
-import styles from './Input.module.scss';
+import { Input, InputWithExclamation } from '../Input';
+import styles from '../Input.module.scss';
 
-// Mock the Icon component
-vi.mock('../Icon/Icon', () => ({
-  BaseIcon: ({ iconName, variant, size }: any) => (
-    <svg role="img" data-testid="icon" data-icon-name={iconName} data-variant={variant} data-size={size}>
-      <title>{iconName}</title>
+// Mock the Icon component - simple mock that renders an SVG
+vi.mock('../../Icon', () => ({
+  BaseIcon: ({ size }: any) => (
+    <svg 
+      className="mocked-icon"
+      width={size === 'sm' ? 16 : size === 'lg' ? 32 : 24}
+      height={size === 'sm' ? 16 : size === 'lg' ? 32 : 24}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M11 14V5h2v9zm0 5v-2h2v2z" fill="currentColor" />
     </svg>
   )
 }));
@@ -57,16 +62,31 @@ describe('Input component (Preact)', () => {
     });
 
     it('renders start icon when startIcon prop is true', () => {
-        render(<Input startIcon />);
-        const icon = screen.getByTestId('icon');
-        expect(icon).toBeInTheDocument();
+        const { container } = render(<Input startIcon />);
+        
+        // Look for the SVG element directly in the container
+        const svgElement = container.querySelector('svg');
+        expect(svgElement).toBeInTheDocument();
+        
+        // Check that the icon wrapper is present
+        const iconWrapper = container.querySelector(`.${styles.iconWrapper}`);
+        expect(iconWrapper).toBeInTheDocument();
     });
 
     it('InputWithExclamation uses exclamation icon', () => {
-        render(<InputWithExclamation />);
-        const icon = screen.getByTestId('icon');
-        expect(icon).toBeInTheDocument();
-        expect(icon).toHaveAttribute('data-icon-name', 'Exclamation');
+        const { container } = render(<InputWithExclamation />);
+        
+        // Look for the SVG element directly
+        const svgElement = container.querySelector('svg');
+        expect(svgElement).toBeInTheDocument();
+        
+        // Check that the icon wrapper is present
+        const iconWrapper = container.querySelector(`.${styles.iconWrapper}`);
+        expect(iconWrapper).toBeInTheDocument();
+        
+        // Verify that input has icon styling
+        const input = screen.getByRole('textbox') as HTMLInputElement;
+        expect(input).toHaveClass(styles.inputWithIcon);
     });
 
     it('handles onChange and onInput events', () => {

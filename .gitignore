@@ -23,5 +23,23 @@ dist-ssr
 *.sln
 *.sw?
 
+# Storybook
 *storybook.log
 storybook-static
+
+# Testing
+coverage
+*.lcov
+.nyc_output
+
+# Test screenshots and reports
+test-results/
+playwright-report/
+screenshots/
+test-output/
+
+# Temporary test files
+temp/
+tmp/
+.temp/
+.tmp/

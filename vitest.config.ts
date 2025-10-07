@@ -8,7 +8,8 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
-    css: true // Enable CSS processing in tests
+    css: true, // Enable CSS processing in tests
+    include: ['src/**/*.{test,spec}.{js,ts,jsx,tsx}'],
   },
   resolve: {
     alias: {
