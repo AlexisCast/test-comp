@@ -13,3 +13,7 @@ export type { InputProps } from './components/Input';
 
 // Icon components
 export * from './components/Icon/Icons';
+
+// Colors - simplified exports
+export { colors, theme } from './styles/colors';
+export type { Colors, ColorValue } from './styles/colors';

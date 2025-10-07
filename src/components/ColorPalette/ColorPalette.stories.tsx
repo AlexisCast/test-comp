@@ -18,18 +18,19 @@ const meta: Meta<ColorPaletteProps> = {
       control: {
         type: 'multi-select',
         options: [
-          'primary',
-          'secondary', 
-          'neutral',
-          'success',
-          'warning',
-          'error',
-          'info',
-          'base',
-          'semantic',
-          'background',
+          'brand',
+          'gray',
           'text',
-          'border'
+          'background',
+          'border',
+          'base',
+          'primary-scale',
+          'secondary-scale',
+          'neutral-scale',
+          'success-scale',
+          'warning-scale',
+          'error-scale',
+          'info-scale'
         ],
       },
       description: 'Filter to show only specific color categories',
@@ -51,40 +52,40 @@ export const AllColors: Story = {
   },
 };
 
-export const PrimaryColors: Story = {
+export const BrandColors: Story = {
   args: {
-    categories: ['primary'],
+    categories: ['brand'],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Primary color scale - the main brand colors used throughout the interface.',
+        story: 'Brand color scale - the main brand colors used throughout the interface including primary, success, warning, error, and info colors.',
       },
     },
   },
 };
 
-export const SemanticColors: Story = {
+export const GrayScale: Story = {
   args: {
-    categories: ['success', 'warning', 'error', 'info'],
+    categories: ['gray'],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Semantic colors used for feedback, status indicators, and messaging.',
+        story: 'Gray scale colors for backgrounds, borders, and subtle elements.',
       },
     },
   },
 };
 
-export const NeutralColors: Story = {
+export const TextColors: Story = {
   args: {
-    categories: ['neutral', 'secondary'],
+    categories: ['text'],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Neutral and secondary colors for backgrounds, borders, and subtle elements.',
+        story: 'Text colors with semantic names for different text hierarchies.',
       },
     },
   },
@@ -103,14 +104,14 @@ export const FunctionalColors: Story = {
   },
 };
 
-export const BrandColors: Story = {
+export const BaseColors: Story = {
   args: {
-    categories: ['primary', 'secondary', 'semantic'],
+    categories: ['base'],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Core brand colors including primary, secondary, and their semantic aliases.',
+        story: 'Base colors - pure white and black.',
       },
     },
   },
@@ -118,12 +119,51 @@ export const BrandColors: Story = {
 
 export const SystemColors: Story = {
   args: {
-    categories: ['base', 'neutral', 'background', 'text', 'border'],
+    categories: ['base', 'gray', 'background', 'text', 'border'],
   },
   parameters: {
     docs: {
       description: {
-        story: 'System-level colors for interface foundations including base colors, neutrals, and functional colors.',
+        story: 'System-level colors for interface foundations including base colors, grays, and functional colors.',
+      },
+    },
+  },
+};
+
+export const CSSModuleScales: Story = {
+  args: {
+    categories: ['primary-scale', 'secondary-scale', 'neutral-scale'],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Complete color scales from CSS modules with all shade variations (50-950).',
+      },
+    },
+  },
+};
+
+export const SemanticScales: Story = {
+  args: {
+    categories: ['success-scale', 'warning-scale', 'error-scale', 'info-scale'],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Semantic color scales for feedback states with full shade ranges.',
+      },
+    },
+  },
+};
+
+export const CompleteColorSystem: Story = {
+  args: {
+    categories: ['brand', 'primary-scale', 'neutral-scale', 'success-scale', 'warning-scale', 'error-scale'],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'A comprehensive view combining simplified brand colors with detailed CSS module scales.',
       },
     },
   },

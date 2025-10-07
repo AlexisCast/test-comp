@@ -131,4 +131,30 @@ describe('Input component (Preact)', () => {
         expect(computedStyle.width).toBe('100%');
         expect(computedStyle.minWidth).toBe('16px');
     });
+
+    it('label has correct CSS properties', () => {
+        render(<Input label="Test Label" />);
+        const labelElement = screen.getByText('Test Label');
+
+        // Verify the label has the correct CSS class
+        expect(labelElement).toHaveClass(styles.label);
+
+        // Test computed styles for the label
+        const computedStyle = window.getComputedStyle(labelElement);
+
+        expect(computedStyle.fontSize).toBe('14px');
+        expect(computedStyle.fontWeight).toBe('500');
+        expect(computedStyle.marginBottom).toBe('4px');
+        expect(computedStyle.color).toBe('var(--neutral-700)');
+        // Note: CSS variables like var(--neutral-700) may not be resolved in jsdom
+        // but we can test that the color property is set
+        expect(computedStyle.color).toBeDefined();
+    });
+
+    it('label class is available in styles module', () => {
+        // Verify the label class exists in the CSS module
+        expect(styles.label).toBeDefined();
+        expect(typeof styles.label).toBe('string');
+        expect(styles.label).toContain('label'); // CSS modules create scoped names containing the original
+    });
 });
